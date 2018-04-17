@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-from flask import render_template, flash, redirect, url_for, request
+from flask import render_template, flash, redirect, url_for
+from flask import request
 from werkzeug.urls import url_parse
 
 from app import app 
@@ -34,6 +35,7 @@ def login():
         if not next_page or url_parse(next_page).netloc != '':
             next_page = url_for('index')
         return redirect(next_page)
+    return render_template('login.html', title='Sign In', form=form)
 
 @app.route('/logout')
 def logout():
