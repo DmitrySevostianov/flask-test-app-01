@@ -37,6 +37,11 @@ def login():
         return redirect(next_page)
     return render_template('login.html', title='Sign In', form=form)
 
+
+@app.route('/explore')
+def explore():
+    return 'Hi!' #redirect(url_for('index'))
+
 @app.route('/logout')
 def logout():
     logout_user()
